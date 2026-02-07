@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Pallavi ❤️</title>
+<style>
+body{
+    margin:0;
+    background:black;
+    color:white;
+    font-family:'Segoe UI',sans-serif;
+    text-align:center;
+    overflow:hidden;
+}
+.container{
+    position:relative;
+    top:50%;
+    transform:translateY(-50%);
+}
+img{
+    width:280px;
+    border-radius:20px;
+    box-shadow:0 0 40px rgba(255,0,0,0.8);
+    animation:glow 2s infinite alternate;
+}
+@keyframes glow{
+    from{box-shadow:0 0 20px red;}
+    to{box-shadow:0 0 60px pink;}
+}
+h1{
+    font-size:36px;
+    margin-top:20px;
+}
+p{
+    font-size:22px;
+    max-width:700px;
+    margin:20px auto;
+    line-height:1.6;
+}
+.heart{
+    position:absolute;
+    font-size:25px;
+    animation:float 8s infinite;
+}
+@keyframes float{
+    from{transform:translateY(0);opacity:0;}
+    to{transform:translateY(-800px);opacity:1;}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <img src="photo.jpg" alt="Our Photo">
+    <h1>Pallavi ❤️ Akshit</h1>
+    <p>
+        I love you forever and ever — GenZ ❤️<br><br>
+        You are the most beautiful part of my life.<br>
+        Every moment with you feels magical.<br>
+        Will you stay with me forever?
+    </p>
+</div>
+
+<script>
+function createHeart(){
+    const h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="❤️";
+    h.style.left=Math.random()*100+"vw";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),8000);
+}
+setInterval(createHeart,500);
+</script>
+
+</body>
+</html>

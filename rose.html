@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Rose Day ❤️</title>
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff4e50,#f9d423);
+    font-family:'Segoe UI',sans-serif;
+    color:white;
+    text-align:center;
+    overflow:hidden;
+}
+h1{font-size:42px;}
+button{
+    margin-top:30px;
+    padding:15px 30px;
+    font-size:20px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    background:white;
+    color:#ff4e50;
+}
+.rose{
+    position:absolute;
+    bottom:-150px;
+    font-size:90px;
+    animation:rise 6s infinite;
+}
+@keyframes rise{
+    from{transform:translateY(0);opacity:0;}
+    to{transform:translateY(-900px);opacity:1;}
+}
+</style>
+</head>
+<body>
+
+<div>
+    <h1>Happy Rose Day Pallavi Kotwal 🌹</h1>
+    <p>This rose carries my heart to you…</p>
+    <button onclick="openLove()">Click for a Surprise ❤️</button>
+</div>
+
+<script>
+function openLove(){
+    window.open("love.html","_blank");
+}
+
+function createRose(){
+    const r=document.createElement("div");
+    r.className="rose";
+    r.innerHTML="🌹";
+    r.style.left=Math.random()*100+"vw";
+    document.body.appendChild(r);
+    setTimeout(()=>r.remove(),6000);
+}
+setInterval(createRose,800);
+</script>
+
+</body>
+</html>
