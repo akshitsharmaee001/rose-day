@@ -22,7 +22,15 @@ img{
     width:260px;
     border-radius:20px;
     box-shadow:0 0 30px pink;
+    transform: rotate(-8deg);
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
 }
+
+img:hover{
+    transform: rotate(0deg) scale(1.05);
+    box-shadow:0 0 50px hotpink;
+}
+
 
 h1{
     font-size:38px;
@@ -82,5 +90,6 @@ setInterval(createHeart,400);
 
 </body>
 </html>
+
 
 
