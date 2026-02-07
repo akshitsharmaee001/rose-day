@@ -14,10 +14,28 @@ body{
     overflow:hidden;
 }
 
+/* Big glowing heart behind */
+.glowHeart{
+    position:absolute;
+    top:40%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-size:180px;
+    color:rgba(255,0,100,0.15);
+    animation:pulse 2s infinite;
+    z-index:-1;
+}
+@keyframes pulse{
+    0%{transform:translate(-50%,-50%) scale(1);}
+    50%{transform:translate(-50%,-50%) scale(1.2);}
+    100%{transform:translate(-50%,-50%) scale(1);}
+}
+
 .container{
     margin-top:60px;
 }
 
+/* Rotated romantic photo */
 img{
     width:260px;
     border-radius:20px;
@@ -25,32 +43,31 @@ img{
     transform: rotate(-8deg);
     transition: transform 0.6s ease, box-shadow 0.6s ease;
 }
-
 img:hover{
     transform: rotate(0deg) scale(1.05);
     box-shadow:0 0 50px hotpink;
 }
-
 
 h1{
     font-size:38px;
     margin-top:20px;
 }
 
-p{
+#typeText{
     font-size:22px;
     width:80%;
     margin:auto;
     margin-top:20px;
     line-height:1.6;
+    min-height:160px;
 }
 
+/* Floating hearts */
 .heart{
     position:absolute;
     font-size:24px;
     animation:floatUp 7s linear infinite;
 }
-
 @keyframes floatUp{
     0%{ transform:translateY(0); opacity:0; }
     50%{ opacity:1; }
@@ -61,18 +78,22 @@ p{
 
 <body>
 
+<div class="glowHeart">❤️</div>
+
 <div class="container">
+    <!-- Make sure the filename matches EXACTLY -->
     <img src="./photo.jpg" alt="Our Photo">
     <h1>Pallavi ❤️ Akshit</h1>
-    <p>
-        I love you forever and ever — GenZ ❤️<br><br>
-        You are the most beautiful part of my life.<br>
-        Every moment with you feels magical.<br>
-        Will you stay with me forever?
-    </p>
+    <p id="typeText"></p>
 </div>
 
+<!-- Soft romantic background music -->
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_6c9a4b6c62.mp3?filename=romantic-background-110997.mp3" type="audio/mpeg">
+</audio>
+
 <script>
+/* Floating hearts */
 function createHeart(){
     var heart = document.createElement("div");
     heart.className = "heart";
@@ -84,12 +105,34 @@ function createHeart(){
         heart.remove();
     },7000);
 }
-
 setInterval(createHeart,400);
+
+/* Typewriter message */
+const text = `Pallavi ❤️
+
+I love you forever and ever — GenZ ❤️
+
+You are the most beautiful part of my life.
+Every moment with you feels magical.
+Will you stay with me forever?
+
+— Akshit`;
+
+let i = 0;
+function typeWriter(){
+    if(i < text.length){
+        document.getElementById("typeText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 45);
+    }
+}
+typeWriter();
+
+/* Final proposal popup */
+setTimeout(()=>{
+    alert("Pallavi, will you be mine forever? ❤️\n— Akshit");
+}, 12000);
 </script>
 
 </body>
 </html>
-
-
-
